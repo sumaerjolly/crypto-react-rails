@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Search from './Search';
 import Calculate from './Calculate';
 import axios from 'axios';
+import Portfolio from './Portfolio';
 
 class PortfolioContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      portolio: [],
+      portfolio: [],
       searchResults: [],
       activeCurrency: null,
       amount: ''
@@ -61,7 +62,7 @@ class PortfolioContainer extends Component {
         this.setState({
           amount: '',
           activeCurrency: null,
-          portolio: [...this.state.portolio, response.data]
+          portfolio: [...this.state.portfolio, response.data]
         });
       })
       .catch(error => {
@@ -90,7 +91,12 @@ class PortfolioContainer extends Component {
         handleChange={this.handleChange}
       />
     );
-    return <div>{searchOrCaluclate}</div>;
+    return (
+      <div>
+        {searchOrCaluclate}
+        <Portfolio portfolio={this.state.portfolio} />
+      </div>
+    );
   }
 }
 

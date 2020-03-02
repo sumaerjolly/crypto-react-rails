@@ -104,9 +104,13 @@ label {
 .portfolio-value--total {
   font-size: 14px;
 }
+.portfolio-value--header {
+  padding: 15px;
+}
 
 .portfolio-value--content {
   font-size: 30px;
+  padding: 15px;
 }
 
 .currency-list {
